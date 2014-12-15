@@ -1,193 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20141208 14:53:52.546" generator="Robot 2.8.6 (Python 2.7.8 on linux2)">
-<suite source="/home/jcurl/dev/lab/robot/ExampleLibraryTest.robot" id="s1" name="ExampleLibraryTest">
-<test id="s1-t1" name="Hi">
-<kw type="kw" name="${STR} = ExampleLibrary.Hello World">
-<doc></doc>
+<robot generated="20141215 11:12:43.393" generator="Robot 2.8.6 (Python 2.7.8 on linux2)">
+<suite source="/home/jcurl/dev/lab/robot/ManualTest.robot" id="s1" name="ManualTest">
+<test id="s1-t1" name="Browser">
+<kw type="kw" name="${browser} = Dialogs.Get Selection From User">
+<doc>Pauses test execution and asks user to select a value.</doc>
 <arguments>
+<arg>Select a browser</arg>
+<arg>firefox</arg>
+<arg>chrome</arg>
 </arguments>
-<msg timestamp="20141208 14:53:52.570" level="INFO">${STR} = hello world</msg>
-<status status="PASS" endtime="20141208 14:53:52.570" starttime="20141208 14:53:52.570"></status>
+<msg timestamp="20141215 11:12:46.425" level="INFO">${browser} = firefox</msg>
+<status status="PASS" endtime="20141215 11:12:46.424" starttime="20141215 11:12:43.472"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
+<kw type="kw" name="${url} = Dialogs.Get Value From User">
+<doc>Pauses test execution and asks user to input a value.</doc>
 <arguments>
-<arg>${STR}</arg>
-<arg>hello world</arg>
+<arg>Enter a URL</arg>
 </arguments>
-<msg timestamp="20141208 14:53:52.571" level="INFO">Argument types are:
-&lt;type 'str'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20141208 14:53:52.571" starttime="20141208 14:53:52.570"></status>
+<msg timestamp="20141215 11:12:51.897" level="INFO">${url} = about:config</msg>
+<status status="PASS" endtime="20141215 11:12:51.896" starttime="20141215 11:12:46.425"></status>
 </kw>
-<kw type="kw" name="${STR} = ExampleLibrary.Hello">
-<doc></doc>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
 <arguments>
-<arg>Bobby</arg>
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
 </arguments>
-<msg timestamp="20141208 14:53:52.571" level="INFO">${STR} = Hello, Bobby</msg>
-<status status="PASS" endtime="20141208 14:53:52.571" starttime="20141208 14:53:52.571"></status>
+<msg timestamp="20141215 11:12:51.897" level="INFO">Opening browser 'firefox' to base url 'about:config'</msg>
+<status status="PASS" endtime="20141215 11:13:03.544" starttime="20141215 11:12:51.897"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
+<kw type="kw" name="Dialogs.Execute Manual Step">
+<doc>Pauses test execution until user sets the keyword status.</doc>
 <arguments>
-<arg>${STR}</arg>
-<arg>Hello, Bobby</arg>
+<arg>Is this what you expected?</arg>
+<arg>default_error=Was not expecting this!</arg>
 </arguments>
-<msg timestamp="20141208 14:53:52.571" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20141208 14:53:52.572" starttime="20141208 14:53:52.571"></status>
-</kw>
-<doc></doc>
-<tags>
-</tags>
-<status status="PASS" endtime="20141208 14:53:52.572" critical="yes" starttime="20141208 14:53:52.570"></status>
-</test>
-<test id="s1-t2" name="Counting">
-<kw type="kw" name="${COUNTER} = ExampleLibrary.Get Counter">
-<doc></doc>
-<arguments>
-</arguments>
-<msg timestamp="20141208 14:53:52.573" level="INFO">${COUNTER} = 0</msg>
-<status status="PASS" endtime="20141208 14:53:52.573" starttime="20141208 14:53:52.572"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Should Be Equal As Integers">
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<arguments>
-<arg>${Counter}</arg>
-<arg>0</arg>
-</arguments>
-<msg timestamp="20141208 14:53:52.573" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20141208 14:53:52.573" starttime="20141208 14:53:52.573"></status>
-</kw>
-<kw type="kw" name="${COUNTER} = ExampleLibrary.Count">
-<doc></doc>
-<arguments>
-</arguments>
-<msg timestamp="20141208 14:53:52.573" level="INFO">${COUNTER} = 1</msg>
-<status status="PASS" endtime="20141208 14:53:52.573" starttime="20141208 14:53:52.573"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Should Be Equal As Integers">
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<arguments>
-<arg>${Counter}</arg>
-<arg>1</arg>
-</arguments>
-<msg timestamp="20141208 14:53:52.574" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20141208 14:53:52.574" starttime="20141208 14:53:52.574"></status>
-</kw>
-<kw type="for" name="${INDEX} IN [ RANGE | 1 | 3 ]">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="foritem" name="${INDEX} = RANGE">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="${COUNTER} = ExampleLibrary.Count">
-<doc></doc>
-<arguments>
-</arguments>
-<msg timestamp="20141208 14:53:52.574" level="INFO">${COUNTER} = 2</msg>
-<status status="PASS" endtime="20141208 14:53:52.574" starttime="20141208 14:53:52.574"></status>
-</kw>
-<status status="PASS" endtime="20141208 14:53:52.574" starttime="20141208 14:53:52.574"></status>
-</kw>
-<kw type="foritem" name="${INDEX} = 1">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="${COUNTER} = ExampleLibrary.Count">
-<doc></doc>
-<arguments>
-</arguments>
-<msg timestamp="20141208 14:53:52.575" level="INFO">${COUNTER} = 3</msg>
-<status status="PASS" endtime="20141208 14:53:52.575" starttime="20141208 14:53:52.574"></status>
-</kw>
-<status status="PASS" endtime="20141208 14:53:52.575" starttime="20141208 14:53:52.574"></status>
-</kw>
-<kw type="foritem" name="${INDEX} = 3">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="${COUNTER} = ExampleLibrary.Count">
-<doc></doc>
-<arguments>
-</arguments>
-<msg timestamp="20141208 14:53:52.575" level="INFO">${COUNTER} = 4</msg>
-<status status="PASS" endtime="20141208 14:53:52.575" starttime="20141208 14:53:52.575"></status>
-</kw>
-<status status="PASS" endtime="20141208 14:53:52.575" starttime="20141208 14:53:52.575"></status>
-</kw>
-<status status="PASS" endtime="20141208 14:53:52.575" starttime="20141208 14:53:52.574"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Should Be Equal As Integers">
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<arguments>
-<arg>${Counter}</arg>
-<arg>4</arg>
-</arguments>
-<msg timestamp="20141208 14:53:52.576" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20141208 14:53:52.576" starttime="20141208 14:53:52.575"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Run Keyword If">
-<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
-<arguments>
-<arg>'${INDEX}' == '3'</arg>
-<arg>Count</arg>
-</arguments>
-<kw type="kw" name="ExampleLibrary.Count">
-<doc></doc>
-<arguments>
-</arguments>
-<status status="PASS" endtime="20141208 14:53:52.576" starttime="20141208 14:53:52.576"></status>
-</kw>
-<status status="PASS" endtime="20141208 14:53:52.576" starttime="20141208 14:53:52.576"></status>
-</kw>
-<kw type="kw" name="${COUNTER} = ExampleLibrary.Get Counter">
-<doc></doc>
-<arguments>
-</arguments>
-<msg timestamp="20141208 14:53:52.577" level="INFO">${COUNTER} = 5</msg>
-<status status="PASS" endtime="20141208 14:53:52.577" starttime="20141208 14:53:52.576"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Should Be Equal As Integers">
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<arguments>
-<arg>${COUNTER}</arg>
-<arg>5</arg>
-</arguments>
-<msg timestamp="20141208 14:53:52.577" level="INFO">Argument types are:
-&lt;type 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20141208 14:53:52.577" starttime="20141208 14:53:52.577"></status>
+<msg timestamp="20141215 11:13:07.945" level="FAIL">Was not expecting this!</msg>
+<status status="FAIL" endtime="20141215 11:13:07.945" starttime="20141215 11:13:03.545"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20141208 14:53:52.577" critical="yes" starttime="20141208 14:53:52.572"></status>
+<status status="FAIL" endtime="20141215 11:13:07.946" critical="yes" starttime="20141215 11:12:43.471">Was not expecting this!</status>
 </test>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20141208 14:53:52.578" starttime="20141208 14:53:52.546"></status>
+<status status="FAIL" endtime="20141215 11:13:07.946" starttime="20141215 11:12:43.393"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="2">Critical Tests</stat>
-<stat fail="0" pass="2">All Tests</stat>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" pass="2" id="s1" name="ExampleLibraryTest">ExampleLibraryTest</stat>
+<stat fail="1" pass="0" id="s1" name="ManualTest">ManualTest</stat>
 </suite>
 </statistics>
 <errors>
